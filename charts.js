@@ -106,10 +106,27 @@ function buildCharts(sample) {
 
     // 2. Create the layout for the bubble chart.
     var bubbleLayout = {
+      title: "Bacteria Cultures Per Sample",
+      xaxis: { title: "OTU ID" }
       
     };
 
     // 3. Use Plotly to plot the data with the layout.
+    Plotly.newPlot('bubble', bubbleData, bubbleLayout);
+
+    // 4. Create the trace for the gauge chart.
+    var gaugeData = [{
+      title:{text: "Scrubs per Week"}
+      type: "indicator",
+		  mode: "gauge+number"
+    }];
     
+    // 5. Create the layout for the gauge chart.
+    var gaugeLayout = { 
+      title: "Belly Button Washing Frequency"
+    };
+
+    // 6. Use Plotly to plot the gauge data and layout.
+    Plotly.newPlot('gauge', bubbleData, bubbleLayout);
   });
 }
